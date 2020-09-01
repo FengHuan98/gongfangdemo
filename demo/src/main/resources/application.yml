@@ -1,41 +1,41 @@
 server:
   port: 80
-   servle:
-     context-path: demo
-
+  servlet:
+   context-path: /demo
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&useSSL=false&serverTimezone=UTC
     username: root
     password: 111
-    # Ê¹ÓÃdruidÊı¾İÔ´
+    # ä½¿ç”¨druidæ•°æ®æº
     type: com.alibaba.druid.pool.DruidDataSource
     druid:
-      # ÅäÖÃ²âÊÔ²éÑ¯Óï¾ä
+      # é…ç½®æµ‹è¯•æŸ¥è¯¢è¯­å¥
       validationQuery: SELECT 1 FROM DUAL
-      # ³õÊ¼»¯´óĞ¡£¬×îĞ¡£¬×î´ó
+      # åˆå§‹åŒ–å¤§å°ï¼Œæœ€å°ï¼Œæœ€å¤§
       initialSize: 10
       minIdle: 10
       maxActive: 200
-      # ÅäÖÃÒ»¸öÁ¬½ÓÔÚ³ØÖĞ×îĞ¡Éú´æµÄÊ±¼ä£¬µ¥Î»ÊÇºÁÃë
+      # é…ç½®ä¸€ä¸ªè¿æ¥åœ¨æ± ä¸­æœ€å°ç”Ÿå­˜çš„æ—¶é—´ï¼Œå•ä½æ˜¯æ¯«ç§’
       minEvictableIdleTimeMillis: 180000
       testOnBorrow: false
       testWhileIdle: true
       removeAbandoned: true
       removeAbandonedTimeout: 1800
       logAbandoned: true
-      # ´ò¿ªPSCache£¬²¢ÇÒÖ¸¶¨Ã¿¸öÁ¬½ÓÉÏPSCacheµÄ´óĞ¡
+      # æ‰“å¼€PSCacheï¼Œå¹¶ä¸”æŒ‡å®šæ¯ä¸ªè¿æ¥ä¸ŠPSCacheçš„å¤§å°
       poolPreparedStatements: true
       maxOpenPreparedStatements: 100
-      # ÅäÖÃ¼à¿ØÍ³¼ÆÀ¹½ØµÄfilters£¬È¥µôºó¼à¿Ø½çÃæsqlÎŞ·¨Í³¼Æ£¬'wall'ÓÃÓÚ·À»ğÇ½
+      # é…ç½®ç›‘æ§ç»Ÿè®¡æ‹¦æˆªçš„filtersï¼Œå»æ‰åç›‘æ§ç•Œé¢sqlæ— æ³•ç»Ÿè®¡ï¼Œ'wall'ç”¨äºé˜²ç«å¢™
       filters: stat,wall,slf4j,config
-      # Í¨¹ıconnectPropertiesÊôĞÔÀ´´ò¿ªmergeSql¹¦ÄÜ£»ÂıSQL¼ÇÂ¼
+      # é€šè¿‡connectPropertieså±æ€§æ¥æ‰“å¼€mergeSqlåŠŸèƒ½ï¼›æ…¢SQLè®°å½•
       connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
-      mybatis-plus:
-        mapper-location: classpath:mapper/*.xml
-        type-aliases-package: com.*.*.entity
-        global-config:
-          db-config:
-            id-type: ASSIGN_ID
+
+mybatis-plus:
+  mapper-location: classpath:mapper/*.xml
+  type-aliases-package: com.*.*.entity
+  global-config:
+    db-config:
+      id-type: ASSIGN_ID
 
