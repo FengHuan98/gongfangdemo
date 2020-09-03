@@ -18,20 +18,12 @@ public class SysUserController {
     @GetMapping("/getUser")
     public SysUser getUser(Long id){
 
-//        if(id!=null)
-//        {
-//            return sysUserService.getById(id);
-//
-//        }else{
-//
-//            return null;
-//        }
+
          return sysUserService.getById(id);
     }
 
     @PostMapping("/addUser")
     public String addUser(SysUser sysUser){
-        System.out.println(sysUser.toString()+"冯欢");
         sysUser.setCreateTime(new Date());
         return sysUserService.save(sysUser)?"保存成功":"保存失败";
     }

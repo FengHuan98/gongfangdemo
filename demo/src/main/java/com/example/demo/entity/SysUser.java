@@ -7,6 +7,7 @@ import java.util.Date;
 
 @Data
 public class SysUser {
+
     private Long id;
     private String userName;
     private String passWord;
